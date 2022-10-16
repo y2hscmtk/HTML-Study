@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>스타일 동적변경</title>
+        <meta charset="utf-8">
+        <script>
+            function changeSpan(){
+                let id = document.getElementById("mySpan");
+                id.style.color = "green";
+                id.style.fontSize= "30px";
+                id.style.display = "block";
+                id.style.width = "6em";
+                id.style.border = "3px dotted magenta";
+                id.style.margin = "20px"
+                id.innerHTML = "변경되었습니다."
+            }
+        </script>
+    </head>
+    <body>
+        <h3>CSS 스타일 동적 변경</h3>
+        <hr>
+        <p><span style="color:blue">이것은</span> <span id="mySpan" style="color:red">문장입니다.</span></p>
+        <input type="button" value="스타일변경" onclick="changeSpan()">
+    </body>
+</html>

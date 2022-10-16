@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>예제 9-9</title>
+        <meta charset="utf-8">
+        <script>
+            function calculate(){
+                let equation = document.getElementById("equation");
+                let result = document.getElementById("result")
+                result.value = eval(equation.value);
+            }
+        </script>
+    </head>
+    <body>
+        <h3>onclick, 계산기 만들기</h3>
+        <hr>
+        <p>계산하고자 하는 수식을 입력하고 계산버튼을 눌러봐요.</p>
+        <p>식<input type="text" id = "equation"></p>
+        <p>값<input type="text" id = "result"> <button onclick="calculate()">계산</button></p>
+    </body>
+</html>
