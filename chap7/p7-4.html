@@ -2,7 +2,28 @@
 <html>
     <head>
         <title></title>
-        <meta charset="utf-8">
+        <meta charset="utf-8"><!DOCTYPE html>
+        <html>
+            <head>
+                <title></title>
+                <meta charset="utf-8">
+            </head>
+            <body>
+                <h3>오전이면 lightskyblue, 오후이면 orange배경</h3>
+                <hr>
+                <script>    
+                    var current = new Date();
+                    if(current.getDay()==0){
+                        document.body.style.backgroundColor = "pink";
+                    }
+                    else
+                        document.body.style.backgroundColor = "gold";
+                    document.write("오늘 : "+current.getDate()+"일,")
+                    let day = ["일","월","화","수","목","금","토"]
+                    document.write(day[current.getDay()]+"요일")
+                </script>
+            </body>
+        </html>
     </head>
     <body>
         

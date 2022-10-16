@@ -3,8 +3,28 @@
     <head>
         <title></title>
         <meta charset="utf-8">
+        <script>
+            let book = new Object();
+            book.title = "HTML5";
+            book.author = "황기태";
+            book.price = 20000;
+        </script>
     </head>
     <body>
-        
+        <h3>book 객체 배열 만들기</h3>
+        <hr>
+        <script>
+            let books = [];
+            for(let i =0;i<5;i++){
+                data = prompt("콤마(,)로 분리하면서 책제목 저자 가격 순으로 입력")
+                datas = data.split(',')
+                books[i] = new Object();
+                books[i].title = datas[0];
+                books[i].author = datas[1];
+                books[i].price = parseInt(datas[2]);
+                document.write("book" + books[i].title +","+books[i].author+","+books[i].price)
+                document.write("<br>")
+            }
+        </script>
     </body>
 </html>
