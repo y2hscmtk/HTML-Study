@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>중간고사 1</title>
+        <meta charset="utf-8">
+        <script>
+            let once = 0;
+            let once2 = 0;
+            function addAnswer(obj,text){
+                once++;
+                if(once<=1){
+                    let parent = obj.parentElement;
+                    let answer = document.createElement("p")
+                
+                    answer.innerHTML = text;
+                    parent.appendChild(answer);
+                }
+            }
+            function addAnswer2(obj,text){
+                once2++;
+                if(once2<=1){
+                    let parent = obj.parentElement;
+                    let answer = document.createElement("p")
+                
+                    answer.innerHTML = text;
+                    parent.appendChild(answer);
+                }
+            }
+
+            //obj 는 버튼 객체
+            function deleteAnswer(){
+                let a = document.getElementsByName.
+                a[0].remove;
+            }
+        </script>
+    </head>
+    <body>
+        <h3>정답의 동적 삽입</h3>
+        <hr>
+        <div><p>Q. 웹 프로그래밍의 3가지 요소는?</p>
+            <button onclick="addAnswer(this,'HTML,CSS,JavaScrpit')">답 보기</button>
+            <button onclick="deleteAnswer()">답 삭제</button>
+        </div>
+        <div><p>Q.클라우드컴퓨팅이란?</p>
+            <button onclick="addAnswer2(this,'컴퓨팅 자원을 인터넷을 이용하여 사용하는 것')">답 보기</button>
+            <button onclick="deleteAnswer(this)">답 삭제</button>
+        </div>
+    </body>
+</html>
