@@ -4,53 +4,32 @@
         <title>중간고사 1</title>
         <meta charset="utf-8">
         <script>
-            let once = 0;
-            let once2 = 0;
+            let check = true;
+            let check2 = true;
             function addAnswer(obj,text){
-                once++;
-                if(once<=1){
+                if(check){ / 한번에 시행에 한해서
                     let parent = obj.parentElement;
                     let answer = document.createElement("p")
-                    answer.id = "p1"
-                   // p.setAttribute(id,'ans1')
-                
+                    if(obj.id == "button1")
+                        answer.id = "p1"
+                    else if(obj.id =="button2")
+                        answer.id = "p2"
                     answer.innerHTML = text;
                     parent.appendChild(answer);
                 }
-            }
-            function addAnswer2(obj,text){
-                once2++;
-                if(once2<=1){
-                    let parent = obj.parentElement;
-                    let answer = document.createElement("p")
-                    answer.id = "p2"
-
-                
-                    answer.innerHTML = text;
-                    parent.appendChild(answer);
-                }
+                check = false; //중복 시행 방지
             }
 
             //obj 는 버튼 객체
-            function deleteAnswer1(obj){
+            function deleteAnswer(obj){
                 let b = obj.parentElement;
-                let p = document.getElementById("p1")
-
-                let p2 = document.getElementById("p2")
+                let p;
+                if(obj.id == "b1")  
+                    p = document.getElementById("p1")
+                else if(obj.id == "b2")
+                    p = document.getElementById("p2")
                 b.removeChild(p);
-                once = 0
-               // let a = document.getElementsByName.
-               // a[0].remove;
-            }
-
-            function deleteAnswer2(obj){
-                let b = obj.parentElement;
-
-                let p2 = document.getElementById("p2")
-                b.removeChild(p2);
-                once2 = 0;
-               // let a = document.getElementsByName.
-               // a[0].remove;
+                check = true;
             }
         </script>
     </head>
@@ -58,12 +37,12 @@
         <h3>정답의 동적 삽입</h3>
         <hr>
         <div><p>Q. 웹 프로그래밍의 3가지 요소는?</p>
-            <button onclick="addAnswer(this,'HTML,CSS,JavaScrpit')">답 보기</button>
-            <button onclick="deleteAnswer1(this)">답 삭제</button>
+            <button id = "button1" onclick="addAnswer(this,'HTML,CSS,JavaScrpit')">답 보기</button>
+            <button id="b1" onclick="deleteAnswer(this)">답 삭제</button>
         </div>
         <div><p>Q.클라우드컴퓨팅이란?</p>
-            <button onclick="addAnswer2(this,'컴퓨팅 자원을 인터넷을 이용하여 사용하는 것')">답 보기</button>
-            <button onclick="deleteAnswer2(this)">답 삭제</button>
+            <button id = "button2" onclick="addAnswer(this,'컴퓨팅 자원을 인터넷을 이용하여 사용하는 것')">답 보기</button>
+            <button id ="b2" onclick="deleteAnswer(this)">답 삭제</button>
         </div>
     </body>
 </html>
