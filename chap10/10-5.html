@@ -1,10 +1,27 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title></title>
+        <title>div 태그에 시계 만들기</title>
         <meta charset="utf-8">
+        <script>
+            let timeID
+            function startClock(){
+                let time = new Date();
+                let clock = document.getElementById('clock');
+                clock.innerHTML = time.toLocaleTimeString()
+                timeID = setTimeout('startClock()',1000); // 1초마다 startClock()함수 호출
+                //recursive한 호출은 바람직하지 않음 => interval을 사용해야함
+            }
+            function stopClock(){
+                clearTimeout(timeID)
+            }
+        </script>
     </head>
-    <body>
-        
+    <body onload="startClock()">
+        <h3>div 태그에 시계 만들기</h3>
+        <hr>
+        <div id = "clock"></div>
+        <input type="button" value="시작" onclick="startClock()">
+        <input type="button" value="정지" onclick="stopClock()">
     </body>
 </html>
