@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <meta charset="utf-8">
+        <script>
+            function alertCity(){
+                let cities = document.getElementsByName("city")
+                let found = null
+                for(let i=0;i<cities.length;i++){
+                    if(cities[i].checked == true){
+                        found = cities[i];
+                    }
+                }
+                if(found==null)
+                    alert("선택된것이 없음")
+                else
+                    alert(found.value + "이 선택되었음")
+            }
+        </script>
+    </head>
+    <body>
+        <h3>버튼을 클릭하면 선택된 라디오 버튼의 value를 출력합니다.</h3>
+        <hr>
+        <form action="">
+            <input type="radio" name="city" value="seoul">서울
+            <input type="radio" name="city" value="busan">부산
+            <input type="radio" name="city" value="chunchen">춘천
+            <input type="button" value = "find checked" onclick="alertCity()">
+        </form>
+    </body>
+</html>
