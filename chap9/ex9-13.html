@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <meta charset="utf-8">
+        <script>
+            function changeImage(){
+                let sel = document.getElementById("selected")
+                let img = document.getElementById("image")
+                img.onload = function() { //이미지가 로딩되었을때 바뀌게 하기위함
+                    let span = document.getElementById("size")
+                    let width = img.width
+                    let height = img.height
+                    span.innerHTML = width + "x" + height
+                }
+                let index = sel.selectedIndex //선택된 인덱스를 알아내기
+                img.src = sel.options[index].value;
+            }
+        </script>
+    </head>
+    <body onload="changeImage()"> 
+        <h3>onload로 이미지 크기 출력</h3>
+        <hr>
+        <form action="">
+            <select name="" id="selected" onchange="changeImage()">
+                <option value="../media/banana.jpg">바나나</option>
+                <option value="../media/apple.jpg">사과</option>
+                <option value="../media/mango.jpg">망고</option>
+            </select>
+            <span id = "size"> 이미지 크기</span>
+        </form>
+        <br><br>
+        <img src="../media/apple.jpg" id="image" alt="">
+    </body>
+</html>
