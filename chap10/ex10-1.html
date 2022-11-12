@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>setTimeout/clearTimeout</title>
+        <meta charset="utf-8">
+        <script>
+            let timerID = null
+            function setTimer(time){
+                timerID = setTimeout("load('https://naver.com')",time) //매개변수로 받은만큼의 시간이 지나면 타이머가 작동됨
+                document.getElementById("img").title = "타이머 작동중 .."
+            }
+            function stopTimer(){
+                if(timerID!=null)
+                    clearTimeout(timerID)
+            }
+            function load(url){
+                //window.open(url)
+                window.location = url
+            }
+        </script>
+    </head>
+    <body>
+        <h3>이미지에 마우스를 올리고 5초간 그대로 있을 때, 사이트로 이동합니다.</h3>
+        <hr>
+        <img src="../media/naver.jpg" id = "img" alt="" onmouseover="setTimer(5000)" onmouseout="stopTimer()">
+    </body>
+</html>
