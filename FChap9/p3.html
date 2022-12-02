@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>계산기 만들기</title>
+        <meta charset="utf-8">
+        <script>
+            function keyCalc(e){
+                if(e.keyCode==13) { //엔터키라면
+                    let equation = document.getElementById("equation");
+                    let result = document.getElementById("value");
+                    result.value = eval(equation.value);
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <h3>계산기 만들기</h3>
+        <hr>
+        <p>수식을 입력하고 ENTER를 입력하세요.</p>
+        식 <input type="text" id = "equation" onkeydown="keyCalc(event)"><br>
+        값 <input type="text" id = "value">
+    </body>
+</html>

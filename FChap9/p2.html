@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>라디오 버튼과 이미지 출력</title>
+        <meta charset="utf-8">
+        <script>
+            function chageImage(){
+                let selectF = null;
+                let fruits = document.getElementsByName("fruit")
+                for(let i=0;i<fruits.length;i++){
+                    if(fruits[i].checked==true){//체크되어있다면?
+                        selectF = fruits[i]; // 선택되어있는것을 파악
+                    }
+                }
+                let image = document.getElementById("img")
+                image.src = selectF.value;
+            }
+        </script>
+    </head>
+    <body>
+        <h3>라디오 버튼을 클릭하면 이미지를 출력합니다.</h3>
+        <hr>
+        <input type="radio" name="fruit" value="../media/banana.jpg"  onchange="chageImage()" >바나나
+        <input type="radio" name="fruit" value="../media/mango.jpg" onchange="chageImage()">망고
+        <input type="radio" name="fruit" value="../media/apple.jpg" onchange="chageImage()" checked>사과
+        <form action="">
+            <img id = "img" src="../media/apple.jpg" width=400 height=300 alt="">
+        </form>
+        
+    </body>
+</html>
