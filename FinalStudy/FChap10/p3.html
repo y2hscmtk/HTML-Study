@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>옵션 선택으로 사이틑 접속</title>
+        <meta charset="utf-8">
+        <script>
+            function newSite(){
+                let sites = document.getElementById("site")
+                let win = window.open(sites.value,"new","left=300,top=300,width=300,height=300")
+            }
+        </script>
+    </head>
+    <body>
+        <h3>옵션 선택으로 사이트 접속</h3>
+        <hr>
+        <p>접속할 사이트</p>
+        <select id = "site" name="sites" onchange="newSite()">
+            <option value= "https://naver.com">네이버</option>
+            <option value="https://google.com">구글</option>
+            <option value="https://daum.net">다음</option>
+        </select>
+    </body>
+</html>

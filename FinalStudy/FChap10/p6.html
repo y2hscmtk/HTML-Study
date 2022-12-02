@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+    <html>
+        <head>
+            <title>최 강:실습 10-6</title>
+            <meta charset="utf-8">
+        <style>
+            #timer{
+                display: inline-block;
+                border-width: 1px;
+                border-style: solid;
+            }
+        </style>
+        <script>
+            let isRun = false //타이머가 현재 작동중인지 여부
+            let timerID = null
+
+            function startTimer(){ 
+                let time = new Date();
+                let clock = document.getElementById("clock")
+                clock.innerHTML = time.toLocaleTimeString()
+                isRun = true //현재 작동 상태를 true로 설정
+            }
+            function onOff(){
+                let clock = document.getElementById("clock")
+                if(isRun){
+                    if (timerID!=null){
+
+                        clock.style.color='lightgray';
+                        clearInterval(timerID) //작동 중지
+                        isRun=false //작동상태 false로 변경
+                    }
+                }
+                else {
+                    clock.style.color='black';
+                    timerID = setInterval('startTimer()',1000); // 1초마다 startClock()함수 호출
+                }
+            }
+        </script>
+        </head>
+        <body onload = "onOff()">
+            <h3>div 태그에 시계 만들기</h3>
+            <p>시계를 클릭하면 시계가 멈추고 다시 클릭하면 가기 시작한다.</p>
+            <hr>
+            <div id="clock" onclick="onOff()"></div>
+        </body>
+    </html>

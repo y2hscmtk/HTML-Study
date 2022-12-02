@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <meta charset="utf-8">
+        <script>
+            let timer = null;
+            function startClock(){
+                
+                let time = new Date();
+                let clock = document.getElementById("clock")
+                clock.innerHTML = time.toLocaleTimeString()
+                timer = window.setTimeout('startClock()',1000);//정해진 시간마다 함수호출
+                //매초 함수를 호출하여 시간을 출력하는것이기때문에 좋은 방법이 아니다.
+            }
+            function stopClock(){
+                window.clearTimeout(timer)
+            }
+        </script>
+    </head>
+    <body onload="startClock()" onclick = "stopClock()">
+        <h3>div 태그에 시계 만들기 클릭하면 시계멈춤</h3>
+        <hr>
+        <div id ="clock"></div>
+    </body>
+</html>

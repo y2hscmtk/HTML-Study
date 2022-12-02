@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>drawCircle()만들기</title>
+        <meta charset="utf-8">
+        <script>
+            function drawCircle(ctx,x,y,radius){
+                ctx.beginPath(); // 빈 경로 구성
+                //ctx.strokeStyle="magenta";
+                //0에서 1.5PI까지 원호를 그리는 메소드
+                //한바퀴를 다 그리려면 2PI로 설정해야함
+                //false가 시계방향임을 기억할것
+	            ctx.arc(x, y,radius, 0, 2*Math.PI, false); // 시계 방향
+	            ctx.stroke(); // 경로에 있는 원호를 그린다
+            }
+        </script>
+    </head>
+    <body>
+        <h3>drawCircle()만들기</h3>
+        <hr>
+        <canvas id="canvas1" width="300" height="220"
+        style="background-color:aliceblue"></canvas>
+        <script>
+            let canvas = document.getElementById("canvas1")
+            let context = canvas.getContext("2d")
+            drawCircle(context,100,100,80);
+            drawCircle(context,150,150,30);
+        </script>
+    </body>
+</html>
