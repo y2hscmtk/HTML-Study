@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>포스트잇</title>
+        <meta charset="utf-8">
+        <script>
+            function addPost(){
+                alert(localStorage.length)
+                
+                for(let i=0;i<localStorage.length;i++){
+                    let memo = document.getElementById("post")
+                    let post = document.createElement("p")
+                    let key = localStorage.key(i);
+                    post.innerHTML = localStorage.getItem(key)
+                    //alert(post.innerHTML)
+                    memo.appendChild(post)
+                }
+            }
+        </script>
+    </head>
+    <body onload="addPost()">
+        <h3>포스트잇 출력</h3>
+        <hr>
+        <form action="" id="post">
+            
+        </form>
+    </body>
+</html>

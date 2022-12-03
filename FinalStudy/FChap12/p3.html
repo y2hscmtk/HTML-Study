@@ -3,6 +3,20 @@
     <head>
         <title>포스트잇</title>
         <meta charset="utf-8">
+        <script>
+            function save(){
+                let title = document.getElementById("title")
+                let memo = document.getElementById("memo")
+                if(!window.localStorage){
+                    alert("로컬 스토리지를 지원하지 않습니다.")
+                    return;
+                }
+                localStorage.setItem(title.value, memo.value)
+            }
+            function showResult(){
+                let win = window.open("p3-1.html","new","left=800,top=800,width=800,height=800")
+            }
+        </script>
     </head>
     <body>
         <h3>포스트잇</h3>
@@ -14,8 +28,7 @@
             <textarea id="memo" cols="30" rows="5"></textarea>
             </label>
             <br>
-            <input type="button" value="저장">
-            <input type="button" value="보기">
-
+            <input type="button" value="저장" onclick="save()">
+            <input type="button" value="보기" onclick="showResult()">
     </body>
 </html>
