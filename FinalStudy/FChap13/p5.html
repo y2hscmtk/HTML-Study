@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>학점 매기기</title>
+        <meta charset="utf-8">
+        <script>
+            function showScore(){
+                let inputScore = prompt('점수를 숫자로 입력하세요.');
+
+                //웹 워커 활용 => 새로운 자바스크립트 파일을 별도로 작성해야함
+                let addWorker = new Worker("returnScore.js");
+
+                //한번에 한 객체만 전달할수 있음에 유의 => 객체의 형태로 만들어서 보내야함
+                addWorker.postMessage(inputScore);//점수 정보 워커로 보내기
+
+                // 워크 태스크로부터 message 이벤트 수신
+                addWorker.onmessage = function (e) {
+                    let score = document.getElementById("score")
+                    let p = document.createElement("p")
+                    p.innerHTML = inputScore + "=" + e.data
+                    score.appendChild(p)
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <h3>학점 매기기</h3>
+        <hr>
+        <button onclick="showScore()">점수 입력</button>
+        <div id="score"></div>
+    </body>
+</html>

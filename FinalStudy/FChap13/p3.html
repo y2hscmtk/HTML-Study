@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>다시할까요?</title>
+        <meta charset="utf-8">
+    </head>
+    <body>
+        <h3>애국가 연주</h3>
+        <hr>
+        <audio id="audio" src="../../media/music2.mp3" autoplay controls></audio>
+        <script>
+            let audio = document.getElementById("audio");
+            //음악이 끝나면
+            audio.onended = function(e){
+                let ask = window.confirm("다시할까요?");
+                if(ask){
+                    audio.load(); // src에 지정된 오디오 데이터 로드
+                    audio.play(); // 처음부터 재생
+                }
+            }
+        </script>
+    </body>
+</html>

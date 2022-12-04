@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>오디오 재생</title>
+        <meta charset="utf-8">
+        
+    </head>
+    <body>
+        <h3>오디오 재생</h3>
+        <p>듣고 싶은 곡은 선택하고 시작 버튼을 누르면 연속하여 자종 연주합니다.</p>
+        <hr>
+        <audio id="audio" src="../../media/music2.mp3" autoplay controls></audio><br>
+        <input type="checkbox" name="music" value="../../media/music1.mp3"> 애국가 <br>
+        <input type="checkbox" name="music" value="../../media/music2.mp3"> VVS <br>
+        <input type="checkbox" name="music" value="../../media/music3.mp3"> 모르는노래 <br>
+        <button onclick="startMusic()">연주시작</button>
+        <script>
+            let playList = []
+            function startMusic(){
+                playList.push(0)
+                let mlist = document.getElementsByName("music") 
+                for(let i=0;i<mlist;i++){
+                    if(mlist[i].checked==true){
+                        alert("true")
+                        playList.push(mlist[i].value)
+                    }
+                    else{
+                        playList.push(0)
+                    }
+                }
+                alert(playList)
+            }
+        </script>
+    </body>
+</html>

@@ -1,53 +1,10 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>문제 3</title>
+        <title></title>
         <meta charset="utf-8">
-        <script>
-            function oldMan(officers){
-                let oldage = officers[0].age;
-                let index = 0;
-                for(let i=0;i<officers.length;i++){
-                    if(officers[i].age>oldage){
-                        oldage = officers[i].age;
-                        index = i;
-                    }
-                }
-                return index;
-            }
-            function youngMan(officers){
-                let youngage = officers[0].age;
-                let index = 0;
-                for(let i=0;i<officers.length;i++){
-                    if(officers[i].age<youngage){
-                        youngage = officers[i].age;
-                        index = i;
-                    }
-                }
-                return index;
-            }
-        </script>
     </head>
     <body>
-        <h3>직원 이름 - 나이 정보</h3>
-        <hr>
-        <script>
-            let officers = [];
-            for(let i =0;i<5;i++){
-                data = prompt("콤마(,)로 분리하면서 officer의 이름과 나이를 입력")
-                datas = data.split(',')
-                officers[i] = new Object();
-                officers[i].name = datas[0];
-                officers[i].age = parseInt(datas[1]);
-                document.write(officers[i].name+","+officers[i].age+"세")
-                document.write("<br>")
-            }
-            document.write("<hr>")
-            let oldAgeIndex = oldMan(officers);
-            let youngAgeIndex = youngMan(officers);
-            document.write("가장 나이 많은 직원은 "+ officers[oldAgeIndex].age+ "세의 " +officers[oldAgeIndex].name +" 입니다.")
-            document.write("<br>")
-            document.write("가장 나이 적은 직원은 "+ officers[youngAgeIndex].age+ "세의 " +officers[youngAgeIndex].name +" 입니다.")
-        </script>
+        
     </body>
 </html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>워커 테스크 만들기</title>
+        <meta charset="utf-8">
+        <script>
+            function calc(){
+                //워커테스크를 만들어서 계산하기
+                let multiply = new Worker('mul.js')
+                let property = {
+                    a : document.getElementById("a").value,
+                    b : document.getElementById("b").value
+                }
+                //객체형태로 만들어 정보 보내기
+                multiply.postMessage(property)
+
+                multiply.onmessage = function (e){
+                    //alert(e.data)
+                    let result = document.getElementById("result")
+                    result.value = e.data
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <h3>곱셈하기</h3>
+        <hr>
+        <form action="">
+            <input type="text" width="300" id="a"> x
+            <input type="text" width="300" id="b"> 
+            <input type="button" value="곱하기" onclick="calc()">
+            <input type="text" width="300" id="result">
+        </form>
+        
+    </body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>오디오 재생</title>
+        <meta charset="utf-8">
+        <script>
+            musicList = ["../../media/music1.mp3","../../media/music2.mp3","../../media/music3.mp3"]
+            function changeMusic(num){
+                
+                audio.src = musicList[num-1]
+            }
+            function stopMusic(){
+                let audio = document.getElementById("audio")
+                audio.pause(); // 일시 중지
+            }
+        </script>
+    </head>
+    <body>
+        <h3>오디오 재생</h3>
+        <hr>
+        <audio id="audio" src="../../media/music1.mp3" autoplay loop controls>autoplay loop controls</audio><br>
+        <p>1. 애국가 <button  onclick="changeMusic(1)">재생</button> <button onclick="stopMusic()">중지</button></p>
+        <p>2. Moon Glow <button onclick="changeMusic(2)">재생</button> <button onclick="stopMusic()">중지</button></p>
+        <p>3. You <button onclick="changeMusic(3)">재생</button> <button onclick="stopMusic()">중지</button></p>
+    </body>
+</html>

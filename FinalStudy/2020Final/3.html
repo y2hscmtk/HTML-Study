@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>최강 1</title>
+        <meta charset="utf-8">
+    </head>
+    <body>
+        <form id="form">
+            <canvas id="canvas1" width="500" height="500"
+        style="background-color: aliceblue;"></canvas>
+        </form>
+        <button onclick="clearCanvas()">Clear</button>
+        
+    </body>
+    <script>
+        let canvas = document.getElementById("canvas1");
+        let context = canvas.getContext("2d");
+
+        //삼각형 그리기
+        context.beginPath(); // 빈 경로 만들기
+        context.strokeStyle = "red"
+        context.lineWidth = 10; //굵기는 10px 
+        context.moveTo(100, 50);  //시작점 설정
+        context.lineTo(100, 250); 	// (120, 20)에서 (20, 50)까지의 직선을 경로에 추가
+        context.lineTo(300, 250); 
+        context.lineTo(100, 50); 
+
+        //좌표찍기
+        context.font = "15px Gothic";
+	    context.fillStyle = "black"; // 채우기 색 
+	    context.fillText("(100,50)", 80, 40); // 텍스트를 경로에 넣지 않고 바로  그리기
+        context.fillText("(100,250)", 30, 250); // 텍스트를 경로에 넣지 않고 바로  그리기
+        context.fillText("(300,250)", 310, 250); // 텍스트를 경로에 넣지 않고 바로  그리기
+
+	    //context.rect(30, 30, 50, 50); // (30,30)에서 50x50 크기 사각형을 경로에 삽입
+	    context.stroke(); // 경로에 있는 모든 도형의 외곽선 그리기
+
+        function clearCanvas(){
+            let form = document.getElementById("form")
+            form.removeChild(canvas)
+        }
+    </script>
+</html>
