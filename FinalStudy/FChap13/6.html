@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>워커 테스크 만들기</title>
+        <meta charset="utf-8">
+        <script>
+            function multiply(){
+                let addWorker = new Worker('mul2.js') //자바스크립트 코드를 바탕으로 워커 생성
+                //워커에 전송할수있는것은 객체뿐이므로
+                let parameter = {
+                    num1 : document.getElementById("a").value,
+                    num2 : document.getElementById("b").value
+                }
+                addWorker.postMessage(parameter)
+
+                //워커테스크에서 데이터 수신시
+                addWorker.onmessage = function(e){
+                    let result = document.getElementById("result")
+                    result.value = e.data //수신 받은 값을 출력
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <h3>곱셈하기</h3>
+        <hr>
+        <input type="text" id="a"> x 
+        <input type="text" id="b"> <button onclick="multiply()">곱하기</button> <input type="text" name="" id="result">
+    </body>
+</html>

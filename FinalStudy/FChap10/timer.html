@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>최 강:실습 10-5 변형</title>
+        <meta charset="utf-8">
+        <script>
+            let timeID = null
+            function startClock(){ //재귀함수 형식으로~
+                let time = new Date(); //현재 시간 알아오기
+                let clock = document.getElementById('clock');
+                clock.innerHTML = time.toLocaleTimeString('en-us')
+                timeID = setTimeout('startClock()',1000); // 1초마다 startClock()함수 호출
+            //recursive한 호출은 바람직하지 않음 => interval을 사용해야함
+            }
+            function stopClock() {
+                if(timeID!=null)
+                    clearTimeout(timeID)
+            }
+        </script>
+    </head>
+    <body onload="startClock()">
+        <h3>div 태그에 시계 만들기</h3>
+        <hr>
+        <div id = "clock"></div>
+        <br>
+        <input type="button" value="정지" onclick="stopClock()">
+    </body>
+</html>

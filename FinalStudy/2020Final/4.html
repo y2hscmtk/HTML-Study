@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>최강 4번</title>
+        <title>4번</title>
         <meta charset="utf-8">
     </head>
     <body>
@@ -12,9 +12,7 @@
         <div id="imagespace"></div>
         <script>
             let div =document.getElementById("imagespace")
-            //let flag1 = false;
-            //let flag2 = false;
-            //let flag3 = false;
+            
             function changeImage(obj){
                 if(obj.checked == false){ //체크가 풀린상태라면 => 이미지 삭제
                     let fruit = document.getElementById(obj.name) //어떤 과일 이미지인지 확인
@@ -27,7 +25,12 @@
                     div.appendChild(fruitImg)
                 }
             }
-            /*function showApple(){
+            /* 
+            //let flag1 = false;
+            //let flag2 = false;
+            //let flag3 = false;
+            독립적인 함수로 사용하는 경우
+            function showApple(){
                 if(flag1){ //기존에 생성된것이 있다면
                     let lastImage = document.getElementById("apple")
                     div.removeChild(lastImage)

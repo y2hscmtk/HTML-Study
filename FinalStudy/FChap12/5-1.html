@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>여행 갑시다</title>
+        <meta charset="utf-8">
+        <style>
+            #selected{
+                display: inline-block;
+                width : 200px;
+                height: 45px;
+                padding-left : 10px;
+                border : 1px solid yellowgreen;
+                }
+        </style>
+        <script>
+            window.addEventListener("storage", storageEventListener, false);
+            
+            function storageEventListener(e) {
+                if(!window.localStorage) {
+                    alert("로컬 스토리지를 지원하지 않습니다.");
+                    return;
+                }   
+                let select = document.getElementById("selected");
+                let city = localStorage.getItem("city");
+                let food = localStorage.getItem("food");
+                select.innerHTML = 'city='+city+'<br>food='+food;
+            }
+        </script>
+    </head>
+    <body onload = "show()">
+        <h3>선택한 도시와 음식 보여주기</h3>
+        <div id = "selected"></div>
+    </body>
+</html>

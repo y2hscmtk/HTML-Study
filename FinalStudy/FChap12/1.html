@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>이름과 학번 입력</title>
+        <meta charset="utf-8">
+        <script>
+            function store(){
+                let name = document.getElementById("name").value
+                let id = document.getElementById("studentID").value
+                sessionStorage.setItem(name,id)
+            }
+        </script>
+    </head>
+    <body>
+        <h3>이름과 학번 입력</h3>
+        <hr>
+        이름 <input id="name" type="text" size = 8><br>
+        학번 <input id="studentID" type="text" size = 8> <button onclick="store()">스토리지에 저장</button><br><br>
+        <a href="1 copy.html">이름으로 학번 검색 페이지로</a>
+    </body>
+</html>

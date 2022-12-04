@@ -4,9 +4,12 @@
         <title>옵션 선택으로 사이틑 접속</title>
         <meta charset="utf-8">
         <script>
+            let wincount = 0
             function newSite(){
                 let sites = document.getElementById("site")
-                let win = window.open(sites.value,"new","left=300,top=300,width=300,height=300")
+                //이름을 지정하지 않으면 계속 창이 열린다.
+                let myWin = window.open(sites.value, wincount, "width=300,height=300")
+                wincount+=1 //계속해서 창을 열게 하기 위하여~
             }
         </script>
     </head>

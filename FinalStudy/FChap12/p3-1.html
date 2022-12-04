@@ -5,12 +5,12 @@
         <meta charset="utf-8">
         <script>
             function addPost(){
-                alert(localStorage.length)
+                //alert(localStorage.length)
                 
                 for(let i=0;i<localStorage.length;i++){
                     let memo = document.getElementById("post")
                     let post = document.createElement("p")
-                    let key = localStorage.key(i);
+                    let key = localStorage.key(i); //해당 인덱스의 키값 받아오기
                     post.innerHTML = localStorage.getItem(key)
                     //alert(post.innerHTML)
                     memo.appendChild(post)
