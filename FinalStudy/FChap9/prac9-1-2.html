@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>최강 : 실습 9-2-2 </title>
+        <meta charset="utf-8">
+        <script>
+            function showImage(){
+                let check = null;
+                let fruits = document.getElementsByName("fruits")
+                for(let i=0;i<fruits.length;i++){
+                    if(fruits[i].checked == true)
+                        check = fruits[i]
+                }
+                let img = document.getElementById("image")
+                img.src = check.value;
+            }
+        </script>
+    </head>
+    <body>
+        <h3>라디오 버튼을 클릭하면 이미지를 출력합니다.</h3>
+        <hr>
+        <form action="">
+            <input type="radio" name = "fruits" onchange="showImage()" value="../media/banana.jpg">바나나
+            <input type="radio" name = "fruits" onchange="showImage()" value="../media/mango.jpg">망고
+            <input type="radio" name = "fruits" onchange="showImage()" value="../media/apple.jpg">사과
+        </form>
+        <div>
+            <img id = "image" width = "100px" height = "100px" src="../media/apple.jpg" alt="">
+        </div>
+    </body>
+</html>

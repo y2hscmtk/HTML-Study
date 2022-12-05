@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>최강 : 실습 9-2-1</title>
+        <meta charset="utf-8">
+        <script>
+            //새로운 버튼이 눌렸을때 기존의 이미지 자식을 제거하고, 새로운 이미지를 출력한다.
+            function showImage(obj){
+                let img = document.getElementById("fruit")
+                let d = document.getElementById("d")
+                d.removeChild(img) //기존 이미지 제거
+                let newImage = document.createElement("img")
+                newImage.width = 100
+                newImage.height = 100
+                newImage.src = obj.value
+                newImage.id = "fruit"
+                d.appendChild(newImage)
+            }
+        </script>
+    </head>
+    <body>
+        <h3>라디오 버튼을 클릭하면 이미지를 출력합니다.</h3>
+        <hr>
+        <form action="">
+            <input type="radio" onchange="showImage(this)" value="../media/banana.jpg">바나나
+            <input type="radio" onchange="showImage(this)" value="../media/mango.jpg">망고
+            <input type="radio" onchange="showImage(this)" value="../media/apple.jpg">사과
+        </form>
+        <div id = "d">
+            <img id = "fruit" width = "100px" height = "100px" src="../media/apple.jpg" alt="">
+        </div>
+    </body>
+</html>
